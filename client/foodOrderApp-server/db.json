@@ -1,0 +1,48 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "email": "johndue@gmail.com",
+            "name": "John",
+            "lastName": "Due",
+            "password":12345
+        }
+    ],
+    "dishes": [
+        {
+            "id_Dish": "ds_pizza",
+            "name": "Pizza",
+            "price": 2000,
+            "description": "Pizza 4 quesos",
+            "urlPhoto": "https://www.pequerecetas.com/wp-content/uploads/2012/11/pizza-4-quesos-1.jpg"
+        },
+        {
+            "id_Dish": "ds_hamburguesa",
+            "name": "Hamburgueza",
+            "price": 3000,
+            "description": "Hamburguesa angus",
+            "urlPhoto": "https://www.pequerecetas.com/wp-content/uploads/2012/11/pizza-4-quesos-1.jpg"
+        },
+        {
+            "id_Dish": "dc_spaguetti",
+            "name": "Spaguetti",
+            "price": 3000,
+            "description": "Carbonara",
+            "urlPhoto": "https://www.pequerecetas.com/wp-content/uploads/2012/11/pizza-4-quesos-1.jpg"
+        }
+    ],
+    "orders": [
+        {
+            "id": 1,
+            "idClient": 1,
+            "details":[
+                {
+                    "id_Dish": "ds_pizza",
+                    "name": "Pizza",
+                    "price": 2000,
+                    "quantity": 2   
+                }
+            ]
+        }
+    ]
+}
