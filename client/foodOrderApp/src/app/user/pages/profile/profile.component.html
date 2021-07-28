@@ -1,1 +1,39 @@
-<p>profile works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <div class="login-form bg-light mt-4 p-4">
+                <form [formGroup]="profileForm" class="row g-3">
+                    <h4>My Profile</h4>
+                    <div class="col-12">
+                        <label>Name</label>
+                        <input type="text" name="NAME" class="form-control" placeholder="Name"
+                            [class.is-invalid]="isValidField('NAME')" formControlName="NAME">
+                        <div class="text-danger" role="alert" *ngIf="isValidField('NAME')">
+                            {{getErrorMessage("NAME")}}
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <label>Address</label>
+                        <input type="text" name="ADDRESS" class="form-control" placeholder="Address"
+                            [class.is-invalid]="isValidField('ADDRESS')" formControlName="ADDRESS">
+                        <div class="text-danger" role="alert" *ngIf="isValidField('ADDRESS')">
+                            {{getErrorMessage("ADDRESS")}}
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <label>Password</label>
+                        <input type="password" name="password" class="form-control" placeholder="Password"
+                            [class.is-invalid]="isValidField('PASSWORD')" formControlName="PASSWORD">
+                        <div class="text-danger" role="alert" *ngIf="isValidField('PASSWORD')">
+                            {{getErrorMessage("PASSWORD")}}
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-dark float-end" [disabled]="profileForm.invalid"
+                            (click)="changeProfileInfo()">Confirm</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

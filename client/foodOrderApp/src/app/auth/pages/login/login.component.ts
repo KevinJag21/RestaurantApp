@@ -47,21 +47,21 @@ export class LoginComponent implements OnInit {
 
     if(field == 'EMAIL'){
       if(this.baseForm.get(field)?.errors?.required){
-        return 'Debe ingresar un correo electrónico';
+        return 'The email is required';
         
       }else if(this.baseForm.get(field)?.hasError('pattern')){
-        return 'Debe ingresar un correo electrónico válido';
+        return 'Must be a valid email';
         //return msg;
       }
     }
 
     if(field == 'PASSWORD'){
       if(this.baseForm.get(field)?.errors?.required){
-        return 'Debe ingresar una contraseña';
+        return 'The password is required';
         //return msg;
       }else if(this.baseForm.get(field)?.hasError('minlength')){
         const minLength = this.baseForm.get(field)?.errors?.minlength?.requiredLength;
-        return `La contraseña debe tener al menos ${minLength} caracteres`; 
+        return `Must have ${minLength} characters`; 
         //return msg;
       }
     }
