@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Dish } from '../../interfaces/dish.interface';
 import { ApiService } from '../../services/api.service';
+import { DishR } from '../../interfaces/dishResponse.interface';
 
 @Component({
   selector: 'app-food-list',
@@ -11,6 +12,8 @@ export class FoodListComponent implements OnInit {
 
 
   foodList : Dish[] = [];
+  testList : DishR[] = [];
+
   selectDish : Dish = {
     name: '',
     price: 0,
@@ -22,6 +25,12 @@ export class FoodListComponent implements OnInit {
   ngOnInit(): void {
     this.apiSvc.getAvailableFood()
     .subscribe( foodList => this.foodList = foodList);
+
+    this.apiSvc.getRealFood()
+    .subscribe( list => {
+      const {data}: any = list;
+      this.testList = data;
+    });
   }
 
   showSelectedDish(dish : Dish){

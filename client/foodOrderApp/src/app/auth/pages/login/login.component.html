@@ -2,24 +2,37 @@
     <div class="row">
         <div class="col-md-4 offset-md-4">
             <div class="login-form bg-light mt-4 p-4">
-                <form action="" method="" class="row g-3">
+                <form [formGroup]="baseForm" class="row g-3">
                     <h4>Welcome Back</h4>
                     <div class="col-12">
-                        <label>Username</label>
-                        <input type="text" name="username" class="form-control" placeholder="Username">
+                        <label>Email</label>
+                        <input type="text" 
+                                name="EMAIL" 
+                                class="form-control" 
+                                placeholder="correo@mail.com"
+                                [class.is-invalid]="isValidField('EMAIL')"
+                                formControlName="EMAIL">
+                                <div class="text-danger" role="alert" *ngIf="isValidField('EMAIL')">
+                                    {{getErrorMessage("EMAIL")}}
+                                </div>  
                     </div>
                     <div class="col-12">
                         <label>Password</label>
-                        <input type="password" name="password" class="form-control" placeholder="Password">
+                        <input type="password" 
+                                name="password" 
+                                class="form-control" 
+                                placeholder="Password"
+                                [class.is-invalid]="isValidField('PASSWORD')"
+                                formControlName="PASSWORD">
+                        <div class="text-danger" role="alert" *ngIf="isValidField('PASSWORD')">
+                            {{getErrorMessage("PASSWORD")}}
+                        </div>  
                     </div>
                     <div class="col-12">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="rememberMe">
-                            <label class="form-check-label" for="rememberMe"> Remember me</label>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <button type="submit" class="btn btn-dark float-end" (click)="login()">Login</button>
+                        <button type="submit" 
+                                class="btn btn-dark float-end" 
+                                [disabled]="baseForm.invalid"
+                                (click)="login()">Login</button>
                     </div>
                 </form>
                 <hr class="mt-4">

@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { UserRoutingModule } from './user-routing.module';
 import { FoodListComponent } from './pages/food-list/food-list.component';
+import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
 
 
 
@@ -11,11 +14,14 @@ import { FoodListComponent } from './pages/food-list/food-list.component';
   declarations: [
     HomeComponent,
     ProfileComponent,
-    FoodListComponent
+    FoodListComponent,
+    ShoppingCartComponent
   ],
   imports: [
     CommonModule,
-    UserRoutingModule
+    UserRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   exports: [
     HomeComponent
