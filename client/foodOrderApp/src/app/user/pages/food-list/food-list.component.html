@@ -25,13 +25,15 @@
               (click)="showSelectedDish(dish)">
               ver más...
             </button>
-            <a href="#" class="btn btn-success">Añadir al carrito</a>
+            <a class="btn btn-success" (click)="addToCart(dish)">Añadir al carrito</a>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+{{selectDish | json}}
 
 <!--
 <div class="row" *ngFor="let dish of foodList">

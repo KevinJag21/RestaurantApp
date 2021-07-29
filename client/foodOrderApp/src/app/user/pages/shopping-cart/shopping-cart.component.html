@@ -1,7 +1,18 @@
-<p>shopping-cart works!</p>
-
-<p>{{cartItemList | json}}</p>
-
-<ul *ngFor="let cartItem of cartItemList">
-    <li><h1>{{cartItem.idDish}}</h1><strong>{{cartItem.quantity}}</strong></li>
-</ul>
+<div class="container">
+    <table class="table table-hover">
+        <thead class="bg-primary">
+            <tr>
+                <th class="text-white" scope="col">Dish</th>
+                <th class="text-white" scope="col">Quantity</th>
+                <th class="text-white" scope="col">Price</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let cartItem of cartItemList">
+            <tr class="table-secondary">
+                <td>{{cartItem.idDish}}</td>
+                <td>{{cartItem.quantity}}</td>
+                <td>{{cartItem.price}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

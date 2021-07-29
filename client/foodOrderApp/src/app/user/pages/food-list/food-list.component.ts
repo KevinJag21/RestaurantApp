@@ -41,10 +41,15 @@ export class FoodListComponent implements OnInit {
     this.selectDish = dish;
   }
 
-  addToCart(){
+  addToCart(selectedDish? : Dish){
+    if(selectedDish) {
+      this.selectDish = selectedDish;
+      console.log(selectedDish);
+    }
     const item : CartItem = {
       idDish: this.selectDish.id_Dish,
-      quantity: 2
+      quantity: 1,
+      price: this.selectDish.price
       
     }
     

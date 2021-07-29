@@ -5,4 +5,5 @@ export interface shoppingCart{
 export interface CartItem{
     quantity: number;
     idDish: string;
+    price: number;
 }
