@@ -14,8 +14,8 @@
                     </div>
                     <div class="col-12">
                         <label>Address</label>
-                        <input type="text" name="ADDRESS" class="form-control" placeholder="Address"
-                            [class.is-invalid]="isValidField('ADDRESS')" formControlName="ADDRESS">
+                        <textarea type="text" name="ADDRESS" class="form-control" placeholder="Address"
+                            [class.is-invalid]="isValidField('ADDRESS')" formControlName="ADDRESS"></textarea>
                         <div class="text-danger" role="alert" *ngIf="isValidField('ADDRESS')">
                             {{getErrorMessage("ADDRESS")}}
                         </div>
