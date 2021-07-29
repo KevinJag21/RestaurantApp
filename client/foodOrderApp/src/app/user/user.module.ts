@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
@@ -22,6 +23,7 @@ import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.compo
     UserRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    Ng2SearchPipeModule
   ],
   exports: [
     HomeComponent

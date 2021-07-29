@@ -1,6 +1,20 @@
-<div class="row" *ngFor="let dish of foodList">
+<div class="row mt-4 justify-content-center">
   <div class="col-sm-6 col-md-8">
-    <div class="card text-center">
+    <div class="form-group">
+      <div class="form-floating mb-3">
+        <input type="text" 
+              class="form-control" 
+              id="floatingInput" 
+              placeholder="pizza" 
+              [(ngModel)]="term">
+        <label for="floatingInput">Filter by...</label>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row mt-4 justify-content-center" *ngFor="let dish of foodList | filter:term">
+  <div class="col-sm-6 col-md-8">
+    <div class="card text-center justify-content-center">
       <div class="card border-primary mb-3" style="max-width: 20rem;">
         <div class="card-header bg-primary text-white">Dish</div>
         <div class="card-body">
@@ -19,7 +33,7 @@
   </div>
 </div>
 
-
+<!--
 <div class="row" *ngFor="let dish of foodList">
   <div class="col-sm-6">
     <div class="card text-center">
@@ -35,7 +49,7 @@
     </div>
   </div>
 </div>
-
+-->
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -49,12 +63,12 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary" (click)="addToCart()">Add to cart</button>
       </div>
     </div>
   </div>
 </div>
-<!--{{testList | json}}-->
+{{testShoppingCart | json}}
 <ul *ngFor="let item of testList">
   <li>{{item.name}}</li>
 </ul>

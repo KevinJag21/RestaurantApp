@@ -1,1 +1,7 @@
 <p>shopping-cart works!</p>
+
+<p>{{cartItemList | json}}</p>
+
+<ul *ngFor="let cartItem of cartItemList">
+    <li><h1>{{cartItem.idDish}}</h1><strong>{{cartItem.quantity}}</strong></li>
+</ul>
