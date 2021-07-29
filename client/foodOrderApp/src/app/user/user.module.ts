@@ -23,7 +23,7 @@ import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.compo
     UserRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
   ],
   exports: [
     HomeComponent

@@ -4,6 +4,7 @@ import { ApiService } from '../../services/api.service';
 import { DishR } from '../../interfaces/dishResponse.interface';
 import { ShoppingCartService } from '../../services/shopping-cart.service';
 import { CartItem } from '../../interfaces/shoppingCart.interface';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-food-list',
   templateUrl: './food-list.component.html',
@@ -54,7 +55,13 @@ export class FoodListComponent implements OnInit {
     }
     
     this.shoppingCartSvc.addItemToCart(item);
-    this.testShoppingCart = this.shoppingCartSvc.shoppingList;    
+    this.testShoppingCart = this.shoppingCartSvc.shoppingList;   
+    Swal.fire({
+      icon: 'success',
+      title: 'Your dish has been saved',
+      showConfirmButton: false,
+      timer: 1500
+    })
   }
 
 }
