@@ -1,11 +1,15 @@
-<div class="container mt-3">
+<div class="bg-dark" style="width: 100%;">
+    <img class="img-fluid d-block ml-1 p-2 pb-3bg-dark" style="width: 60%;" src="../../../../assets/img/banner.jpeg"
+        alt="">
+</div>
+<div class="container mt-2">
     <a class="nav-link text-dark" routerLink='./login'><i style="font-size:1.5rem;" class="fas fa-arrow-left"></i></a>
     <div class="row">
         <div class="col-md-4 offset-md-4">
             <div class="login-form bg-light mt-2 p-4">
                 <form [formGroup]="baseForm" class="row g-3">
                     <h4 class="text-center">Welcome</h4>
-                    <div class="col-12 mt-5">
+                    <div class="col-12 mt-3">
                         <label>Full Name</label>
                         <input type="text" name="NAME" class="form-control" placeholder="Your Name"
                             [class.is-invalid]="isValidField('NAME')" formControlName="NAME">

@@ -33,7 +33,7 @@ export class SigninComponent implements OnInit {
     login(){
      // this.router.navigate(['./user']);
       
-      this.authSvc.login("johndue@gmail.com","").subscribe(
+      this.authSvc.signin("","","","").subscribe(
         resp =>{
           console.log(resp); 
           this.router.navigate(['./user']);},

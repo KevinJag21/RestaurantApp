@@ -53,6 +53,15 @@ export class AuthService {
       );
   }
 
+  //arreglar 
+  signin(name: string,address: string,email: string, password: string): Observable<User>{
+    return this.http.get<User>(`${this.baseUrl}/users/1`)
+    .pipe(
+      tap( auth => this._authUser = auth ),
+      tap(auth => localStorage.setItem('token', auth.id ))
+      );
+  }
+
 
   logout(){
     localStorage.removeItem('token');
