@@ -1,1 +1,53 @@
-<p>signin works!</p>
+<div class="container mt-3">
+    <a class="nav-link text-dark" routerLink='./login'><i style="font-size:1.5rem;" class="fas fa-arrow-left"></i></a>
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <div class="login-form bg-light mt-2 p-4">
+                <form [formGroup]="baseForm" class="row g-3">
+                    <h4 class="text-center">Welcome</h4>
+                    <div class="col-12 mt-5">
+                        <label>Full Name</label>
+                        <input type="text" name="NAME" class="form-control" placeholder="Your Name"
+                            [class.is-invalid]="isValidField('NAME')" formControlName="NAME">
+                        <div class="text-danger" role="alert" *ngIf="isValidField('NAME')">
+                            {{getErrorMessage("NAME")}}
+                        </div>
+                    </div>
+                    <div class="col-12 pt-3">
+                        <label>Address</label>
+                        <textarea class="form-control" placeholder="Your Address" [class.is-invalid]="isValidField('ADDRESS')" formControlName="ADDRESS" cols="30" rows="4"></textarea>
+                        <div class="text-danger" role="alert" *ngIf="isValidField('ADDRESS')">
+                            {{getErrorMessage("ADDRESS")}}
+                        </div>
+                    </div>
+                    <div class="col-12 pt-3">
+                        <label>Email</label>
+                        <input type="text" name="EMAIL" class="form-control" placeholder="example@mail.com"
+                            [class.is-invalid]="isValidField('EMAIL')" formControlName="EMAIL">
+                        <div class="text-danger" role="alert" *ngIf="isValidField('EMAIL')">
+                            {{getErrorMessage("EMAIL")}}
+                        </div>
+                    </div>
+                    <div class="col-12 pt-3">
+                        <label>Password</label>
+                        <input type="password" name="password" class="form-control" placeholder="Password"
+                            [class.is-invalid]="isValidField('PASSWORD')" formControlName="PASSWORD">
+                        <div class="text-danger" role="alert" *ngIf="isValidField('PASSWORD')">
+                            {{getErrorMessage("PASSWORD")}}
+                        </div>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <small class="form-check-label" for="flexCheckDefault">I want to receive promotional
+                            emails</small>
+                    </div>
+
+                    <div class="col-12 mt-4">
+                        <button type="submit" class="btn btn-dark float-end" [disabled]="baseForm.invalid"
+                            (click)="login()">Sign In</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

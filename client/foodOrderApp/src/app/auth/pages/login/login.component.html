@@ -1,45 +1,35 @@
-<div class="container">
+<div class="container mt-5">
+    <img class="img-fluid mx-auto d-block ml-1 pt-2" style="width: 17rem;" src="../../../../assets/img/food-icon-motions.gif" alt="">
     <div class="row">
         <div class="col-md-4 offset-md-4">
-            <div class="login-form bg-light mt-4 p-4">
+            <div class="login-form bg-light mt-2 p-4">
                 <form [formGroup]="baseForm" class="row g-3">
-                    <h4>Welcome Back</h4>
-                    <div class="col-12">
+                    <h4 class="text-center">Welcome Back</h4>
+                    <div class="col-12 mt-5">
                         <label>Email</label>
-                        <input type="text" 
-                                name="EMAIL" 
-                                class="form-control" 
-                                placeholder="correo@mail.com"
-                                [class.is-invalid]="isValidField('EMAIL')"
-                                formControlName="EMAIL">
-                                <div class="text-danger" role="alert" *ngIf="isValidField('EMAIL')">
-                                    {{getErrorMessage("EMAIL")}}
-                                </div>  
+                        <input type="text" name="EMAIL" class="form-control" placeholder="example@mail.com"
+                            [class.is-invalid]="isValidField('EMAIL')" formControlName="EMAIL">
+                        <div class="text-danger" role="alert" *ngIf="isValidField('EMAIL')">
+                            {{getErrorMessage("EMAIL")}}
+                        </div>
                     </div>
-                    <div class="col-12">
+                    <div class="col-12 pt-3">
                         <label>Password</label>
-                        <input type="password" 
-                                name="password" 
-                                class="form-control" 
-                                placeholder="Password"
-                                [class.is-invalid]="isValidField('PASSWORD')"
-                                formControlName="PASSWORD">
+                        <input type="password" name="password" class="form-control" placeholder="Password"
+                            [class.is-invalid]="isValidField('PASSWORD')" formControlName="PASSWORD">
                         <div class="text-danger" role="alert" *ngIf="isValidField('PASSWORD')">
                             {{getErrorMessage("PASSWORD")}}
-                        </div>  
+                        </div>
                     </div>
-                    <div class="col-12">
-                        <button type="submit" 
-                                class="btn btn-dark float-end" 
-                                [disabled]="baseForm.invalid"
-                                (click)="login()">Login</button>
+                        <small >Have not account yet? <a href="" class="text-info">Signup</a></small>
+                        <!--<button class="btn btn-dark float-end" (click)="login()">Login</button>-->
+                    
+                    <div class="col-12 mt-4">
+                        <button type="submit" class="btn btn-dark float-end" [disabled]="baseForm.invalid"
+                            (click)="login()">Login</button>
                     </div>
                 </form>
-                <hr class="mt-4">
-                <div class="col-12">
-                    <p class="text-center mb-0">Have not account yet? <a href="#">Signup</a></p>
-                    <button class="btn btn-dark float-end" (click)="login()">Login</button>
-                </div>
+
             </div>
         </div>
     </div>
