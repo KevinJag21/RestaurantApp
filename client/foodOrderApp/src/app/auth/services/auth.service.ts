@@ -33,14 +33,17 @@ export class AuthService {
       return of(false);
     }
 
-    return this.http.get<User>(`${ this.baseUrl }/users/1`)
+    return of(true);
+  }
+  /**
+   * this.http.get<User>(`${ this.baseUrl }/users/1`)
               .pipe(
                 map( auth => {
                   this._authUser = auth;
                   return true;
                 })
               );
-  }
+   */
 
   login(email: string, password: string): Observable<User>{
     return this.http.get<User>(`${this.baseUrl}/users/1`)

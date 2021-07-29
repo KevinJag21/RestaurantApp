@@ -18,7 +18,6 @@ export class LoggedGuard implements CanActivate, CanLoad {
             .pipe(
               tap( isAuth => {
                 if( !isAuth ) {
-                  console.log('bloquedpo por logged canActivate')
                   this.router.navigate(['./user']);
                 }
               })

@@ -6,6 +6,11 @@ import { LoggedGuard } from './auth/guards/logged.guard';
 
 const routes : Routes = [
   {
+    path : '',
+    redirectTo: 'user/food-list',
+    pathMatch: 'full'
+  },
+  {
     path : 'auth',
     loadChildren: () => import('./auth/auth.module').then( m => m.AuthModule ),
     canLoad: [LoggedGuard],
