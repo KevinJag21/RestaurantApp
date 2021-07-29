@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 
 import { AuthService } from '../../services/auth.service';
+import { AuthInterface, AuthResponse } from '../../interfaces/auth-user.interface';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -24,20 +26,32 @@ export class LoginComponent implements OnInit {
   });
   
   ngOnInit(): void {
+    console.log( this.authSvc.auth.id);
   }
 
   login(){
-   // this.router.navigate(['./user']);
     
-    this.authSvc.login("johndue@gmail.com","").subscribe(
-      resp =>{
-        console.log(resp); 
-        this.router.navigate(['./user']);},
-      error =>{
-        console.log("error", error);
-      }
-      
-    );
+   const email = this.baseForm.get('EMAIL')?.value;
+   const password = this.baseForm.get('PASSWORD')?.value;
+   const userLogin : AuthInterface = {
+    email : email,
+    password : password
+   };
+
+   this.authSvc.login2(userLogin).subscribe(
+     resp => {
+       if(resp.success){
+         this.router.navigate(['/user/food-list']);
+       }else{
+        Swal.fire({
+          icon: 'error',
+          title: 'Your password or email is incorrect',
+          showConfirmButton: false,
+          timer: 1500
+        })
+       }
+     }
+   );
   }
 
   /**form validation */
